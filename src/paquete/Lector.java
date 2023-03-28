@@ -7,7 +7,9 @@ import java.util.ArrayList;
 public class Lector {
 	private ArrayList<Partido> partidos;
 	private ArrayList<Equipo> equipos;
-	public ArrayList<String> leerResultado() {
+	private int puntaje;
+	
+	public void leerResultado(String dir) {
 			
 			ArrayList<String> listacsv = new ArrayList<String>();
 			
@@ -17,7 +19,7 @@ public class Lector {
 			
 			
 			try {
-				camino = new FileReader("F:\\Eclipse\\TrabajoPractico\\resultados.csv");
+				camino = new FileReader(dir);
 				lector = new BufferedReader(camino);
 				
 				while((linea = lector.readLine()) !=null) {
@@ -29,10 +31,10 @@ public class Lector {
 				System.out.println(e.getMessage());
 			}
 			
-			return listacsv;
+			procesarResultados(listacsv);
 	}
 	
-	public void procesarResultados(ArrayList<String> listacsv) {
+	private void procesarResultados(ArrayList<String> listacsv) {
 		String lineaCSV;		
 		//ArrayList<Equipo> equipos = new ArrayList<Equipo>();
 		for ( int i = 1; i <= listacsv.size(); i++) {
@@ -45,6 +47,30 @@ public class Lector {
 			Partido p = new Partido(equipo1, equipo2, Integer.parseInt(lineaSeparada[3]), Integer.parseInt(lineaSeparada[4]), i);
 			this.partidos.add(p);
 		}
+	}
+	public void leerPronostico() {
+		ArrayList<String> listacsv = new ArrayList<String>();
+	
+		FileReader camino;
+		BufferedReader lector;
+		String linea;
+	
+	
+		try {
+			camino = new FileReader("F:\\Eclipse\\TrabajoPractico\\pronostico.csv");
+			lector = new BufferedReader(camino);
+			
+			while((linea = lector.readLine()) !=null) {
+				listacsv.add(linea);
+			}
+			
+			}catch (Exception e){
+				System.out.println(e.getMessage());
+			}
+		procesarPronostico(listacsv);
+	}
+	private void procesarPronostico(ArrayList<String> listacsv) {
+		
 	}
 	
 	public ArrayList<Partido> getPartidos(){
