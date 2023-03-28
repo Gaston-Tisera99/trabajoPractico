@@ -9,6 +9,11 @@ public class Lector {
 	private ArrayList<Equipo> equipos;
 	private int puntaje;
 	
+	public Lector() {
+		partidos = new ArrayList<Partido>();
+		equipos = new ArrayList<Equipo>();
+	}
+	
 	public void leerResultado(String dir) {
 			
 			ArrayList<String> listacsv = new ArrayList<String>();
@@ -25,19 +30,17 @@ public class Lector {
 				while((linea = lector.readLine()) !=null) {
 					listacsv.add(linea);
 				}
-				
+				procesarResultados(listacsv);
 			}
 			catch (Exception e){
-				System.out.println(e.getMessage());
-			}
-			
-			procesarResultados(listacsv);
+				System.out.println("No se encuentra el archivo");				
+			}			
 	}
 	
 	private void procesarResultados(ArrayList<String> listacsv) {
 		String lineaCSV;		
 		//ArrayList<Equipo> equipos = new ArrayList<Equipo>();
-		for ( int i = 1; i <= listacsv.size(); i++) {
+		for ( int i = 1; i < listacsv.size(); i++) {
 			lineaCSV = listacsv.get(i);
 			String[] lineaSeparada = lineaCSV.split(";");	
 			Equipo equipo1 = new Equipo(Integer.parseInt(lineaSeparada[0]), lineaSeparada[1], lineaSeparada[2]);
@@ -70,7 +73,11 @@ public class Lector {
 		procesarPronostico(listacsv);
 	}
 	private void procesarPronostico(ArrayList<String> listacsv) {
-		
+		String lineaCSV;		
+		for ( int i = 1; i < listacsv.size(); i++) {
+			lineaCSV = listacsv.get(i);
+			String[] lineaSeparada = lineaCSV.split(";");
+		}
 	}
 	
 	public ArrayList<Partido> getPartidos(){
