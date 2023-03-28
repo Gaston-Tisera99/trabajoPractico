@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class Lector {
 	private ArrayList<Partido> partidos;
 	private ArrayList<Equipo> equipos;
-	private int puntaje;
+	private ArrayList<ResultadoEnum> pronosticos;
 	
 	public Lector() {
 		partidos = new ArrayList<Partido>();
@@ -51,7 +51,7 @@ public class Lector {
 			this.partidos.add(p);
 		}
 	}
-	public void leerPronostico() {
+	public void leerPronostico(String dir) {
 		ArrayList<String> listacsv = new ArrayList<String>();
 	
 		FileReader camino;
@@ -60,7 +60,7 @@ public class Lector {
 	
 	
 		try {
-			camino = new FileReader("F:\\Eclipse\\TrabajoPractico\\pronostico.csv");
+			camino = new FileReader(dir);
 			lector = new BufferedReader(camino);
 			
 			while((linea = lector.readLine()) !=null) {
@@ -78,6 +78,7 @@ public class Lector {
 			lineaCSV = listacsv.get(i);
 			String[] lineaSeparada = lineaCSV.split(";");
 		}
+		
 	}
 	
 	public ArrayList<Partido> getPartidos(){
