@@ -14,5 +14,7 @@ public class Principal {
 			System.out.println();
 			System.out.println(p.toString());
 		}
+		l.leerPronostico("D:\\Documentos\\Eclipse\\trabajoPractico\\pronostico.csv");
+		
 	}
 }

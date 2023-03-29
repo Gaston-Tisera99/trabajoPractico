@@ -93,6 +93,10 @@ public class Lector {
 		
 	}
 	
+	public ArrayList<ResultadoEnum> getPronosticos() {
+		return pronosticos;
+	}
+
 	public ArrayList<Partido> getPartidos(){
 		return this.partidos;
 	}
