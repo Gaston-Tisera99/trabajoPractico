@@ -12,6 +12,7 @@ public class Lector {
 	public Lector() {
 		partidos = new ArrayList<Partido>();
 		equipos = new ArrayList<Equipo>();
+		pronosticos = new ArrayList<ResultadoEnum>();
 	}
 	
 	public void leerResultado(String dir) {
@@ -75,8 +76,19 @@ public class Lector {
 	private void procesarPronostico(ArrayList<String> listacsv) {
 		String lineaCSV;		
 		for ( int i = 1; i < listacsv.size(); i++) {
+			ResultadoEnum res;
 			lineaCSV = listacsv.get(i);
 			String[] lineaSeparada = lineaCSV.split(";");
+			if(lineaSeparada[1].equals("X")) {
+				res = new ResultadoEnum(Integer.parseInt(lineaSeparada[0]), Integer.parseInt(lineaSeparada[4]), Integer.parseInt(lineaSeparada[0])); //Gana 1
+			}
+			else if (lineaSeparada[2].equals("X")) {
+				res = new ResultadoEnum(Integer.parseInt(lineaSeparada[0]), Integer.parseInt(lineaSeparada[4]), Integer.parseInt(lineaSeparada[4])); //Gana 2
+			}
+			else {
+				res = new ResultadoEnum(Integer.parseInt(lineaSeparada[0]), Integer.parseInt(lineaSeparada[4]), -1);  //Empatan
+			}
+			pronosticos.add(res);
 		}
 		
 	}

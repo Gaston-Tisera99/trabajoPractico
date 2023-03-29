@@ -21,6 +21,5 @@ public class ResultadoEnum {
 
 	public int getIdGanador() {
 		return idGanador;
-	}
-	
+	}	
 }

@@ -7,28 +7,24 @@ public class Partido {
 	private int golesEquipo1;
 	private int golesEquipo2;
 	private int numPartido;
-	private int ganador;	//id de equipo
-	private int perdedor;	//id de equipo
+	private ResultadoEnum resultado;
 	
 	public Partido(Equipo equipo1, Equipo equipo2, int golesEquipo1, int golesEquipo2, int numPartido) {
 		this.equipo1 = equipo1;
 		this.equipo2 = equipo2;
 		this.golesEquipo1 = golesEquipo1;
 		this.golesEquipo2 = golesEquipo2;
-		this.numPartido = numPartido;
+		this.numPartido = numPartido;		
 		if (golesEquipo1 > golesEquipo2) {
-			this.ganador = equipo1.getId();
-			this.perdedor = equipo2.getId();
+			this.resultado = new ResultadoEnum(equipo1.getId(), equipo2.getId(), equipo1.getId());
 		}
 		else if(golesEquipo1 < golesEquipo2)
 		{
-			this.ganador = equipo2.getId();
-			this.perdedor = equipo1.getId();
+			this.resultado = new ResultadoEnum(equipo1.getId(), equipo2.getId(), equipo2.getId());
 		}
 		else
 		{
-			this.ganador = -1;     // si alguno de los ids es -1 entonces hubo un empate
-			this.perdedor = -1;
+			this.resultado = new ResultadoEnum(equipo1.getId(), equipo2.getId(), -1);
 		}
 	}
 	
@@ -51,12 +47,8 @@ public class Partido {
 		return numPartido;
 	}
 
-	public int getGanador() {
-		return ganador;
-	}
-
-	public int getPerdedor() {
-		return perdedor;
+	public ResultadoEnum getResultado() {
+		return this.resultado;
 	}
 	
 	
