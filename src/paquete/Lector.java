@@ -83,10 +83,10 @@ public class Lector {
 				res = new ResultadoEnum(Integer.parseInt(lineaSeparada[0]), Integer.parseInt(lineaSeparada[4]), Integer.parseInt(lineaSeparada[0])); //Gana 1
 			}
 			else if (lineaSeparada[2].equals("X")) {
-				res = new ResultadoEnum(Integer.parseInt(lineaSeparada[0]), Integer.parseInt(lineaSeparada[4]), Integer.parseInt(lineaSeparada[4])); //Gana 2
-			}
-			else {
 				res = new ResultadoEnum(Integer.parseInt(lineaSeparada[0]), Integer.parseInt(lineaSeparada[4]), -1);  //Empatan
+			}
+			else {				
+				res = new ResultadoEnum(Integer.parseInt(lineaSeparada[0]), Integer.parseInt(lineaSeparada[4]), Integer.parseInt(lineaSeparada[4])); //Gana 2
 			}
 			pronosticos.add(res);
 		}
