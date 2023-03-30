@@ -8,12 +8,17 @@ public class Principal {
 
 	public static void main(String[] args) {
 		
-		Partido p1 = new Partido();
-		Pronostico pr1 = new Pronostico();
-		p1.LeerResultado();
-		
-		pr1.leerPronostico();
-		
+		Lector l = new Lector();
+		l.leerResultado("F:\\Eclipse\\TrabajoPractico\\resultados.csv");
+		for(Equipo e: l.getEquipos()) {
+			System.out.println();
+			System.out.println(e.toString());
+		}
+		for(Partido p: l.getPartidos()) {
+			System.out.println();
+			System.out.println(p.toString());
+		}
+		l.leerPronostico("F:\\Eclipse\\TrabajoPractico\\pronostico.csv");
 	}
 }
 

@@ -9,6 +9,7 @@ public class Partido {
 	private int numPartido;
 	private int ganador;	//id de equipo
 	private int perdedor;	//id de equipo
+	private int puntaje;
 	
 	public Partido(Equipo equipo1, Equipo equipo2, int golesEquipo1, int golesEquipo2, int numPartido) {
 		this.equipo1 = equipo1;
@@ -16,20 +17,21 @@ public class Partido {
 		this.golesEquipo1 = golesEquipo1;
 		this.golesEquipo2 = golesEquipo2;
 		this.numPartido = numPartido;
-		if (golesEquipo1 > golesEquipo2) {
-			this.ganador = equipo1.getId();
-			this.perdedor = equipo2.getId();
-		}
-		else if(golesEquipo1 < golesEquipo2)
-		{
-			this.ganador = equipo2.getId();
-			this.perdedor = equipo1.getId();
-		}
-		else
-		{
-			this.ganador = -1;     // si alguno de los ids es -1 entonces hubo un empate
-			this.perdedor = -1;
-		}
+		
+//		if (golesEquipo1 > golesEquipo2) {
+//			this.ganador = equipo1.getId();
+//			this.perdedor = equipo2.getId();
+//		}
+//		else if(golesEquipo1 < golesEquipo2)
+//		{
+//			this.ganador = equipo2.getId();
+//			this.perdedor = equipo1.getId();
+//		}
+//		else
+//		{
+//			this.ganador = -1;     // si alguno de los ids es -1 entonces hubo un empate
+//			this.perdedor = -1;
+//		}
 	}
 	
 	@Override
@@ -58,6 +60,24 @@ public class Partido {
 	public int getPerdedor() {
 		return perdedor;
 	}
+
+	public int getGolesEquipo1() {
+		return golesEquipo1;
+	}
+
+	public void setGolesEquipo1(int golesEquipo1) {
+		this.golesEquipo1 = golesEquipo1;
+	}
+
+	public int getGolesEquipo2() {
+		return golesEquipo2;
+	}
+
+	public void setGolesEquipo2(int golesEquipo2) {
+		this.golesEquipo2 = golesEquipo2;
+	}
+
+	
 	
 	
 
