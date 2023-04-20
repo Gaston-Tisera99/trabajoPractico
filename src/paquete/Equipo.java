@@ -1,4 +1,4 @@
-package paquete;
+	package paquete;
 
 public class Equipo {
 	int id;
