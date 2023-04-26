@@ -7,14 +7,17 @@ public class Partido {
 	private int golesEquipo1;
 	private int golesEquipo2;
 	private int numPartido;
+	private String ronda;
+	
 	private ResultadoEnum resultado;
 	
-	public Partido(Equipo equipo1, Equipo equipo2, int golesEquipo1, int golesEquipo2, int numPartido) {
+	public Partido(Equipo equipo1, Equipo equipo2, int golesEquipo1, int golesEquipo2, int numPartido, String ronda) {
 		this.equipo1 = equipo1;
 		this.equipo2 = equipo2;
 		this.golesEquipo1 = golesEquipo1;
 		this.golesEquipo2 = golesEquipo2;
 		this.numPartido = numPartido;		
+		this.ronda = ronda;
 		if (golesEquipo1 > golesEquipo2) {
 			this.resultado = new ResultadoEnum(equipo1.getId(), equipo2.getId(), equipo1.getId());
 		}
@@ -31,7 +34,7 @@ public class Partido {
 	@Override
 	public String toString() {
 		String str = this.equipo1.getNombre() + " VS " + this.equipo2.getNombre() + "\n" + "Resulado: " + this.golesEquipo1 + " a " + this.golesEquipo2 +
-				"\n" + "Numero de partido: " + this.numPartido; 
+				"\n" + "Numero de partido: " + this.numPartido + "\n" + "Ronda: " + this.ronda;
 		return str;
 	}
 
@@ -50,7 +53,11 @@ public class Partido {
 	public ResultadoEnum getResultado() {
 		return this.resultado;
 	}
-	
+
+	public String getRonda() {
+		return ronda;
+	}
+
 	
 
 	/*

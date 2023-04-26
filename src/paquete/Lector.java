@@ -8,12 +8,16 @@ public class Lector {
 	private ArrayList<Partido> partidos;
 	private ArrayList<Equipo> equipos;
 	private ArrayList<ResultadoEnum> pronosticos;
+	private ArrayList<Ronda> ronda;
 	
 	public Lector() {
 		partidos = new ArrayList<Partido>();
 		equipos = new ArrayList<Equipo>();
-		pronosticos = new ArrayList<ResultadoEnum>();
+		pronosticos = new ArrayList<ResultadoEnum>();	
+		ronda = new ArrayList<Ronda>();
 	}
+	
+
 	
 	public void leerResultado(String dir) {
 			
@@ -32,6 +36,7 @@ public class Lector {
 					listacsv.add(linea);
 				}
 				procesarResultados(listacsv);
+			
 			}
 			catch (Exception e){
 				System.out.println("No se encuentra el archivo");				
@@ -48,8 +53,11 @@ public class Lector {
 			this.equipos.add(equipo1);
 			Equipo equipo2 = new Equipo(Integer.parseInt(lineaSeparada[5]), lineaSeparada[6], lineaSeparada[7]);			
 			this.equipos.add(equipo2);
-			Partido p = new Partido(equipo1, equipo2, Integer.parseInt(lineaSeparada[3]), Integer.parseInt(lineaSeparada[4]), i);
+			Ronda rs = new Ronda(lineaSeparada[8]);
+			this.ronda.add(rs);
+			Partido p = new Partido(equipo1, equipo2, Integer.parseInt(lineaSeparada[3]), Integer.parseInt(lineaSeparada[4]), i, rs.getNro());
 			this.partidos.add(p);
+			
 		}
 	}
 	public void leerPronostico(String dir) {
@@ -92,6 +100,11 @@ public class Lector {
 		}
 		
 	}
+	
+	public ArrayList<Ronda> getRonda(){
+		return this.ronda;
+	}
+	
 	
 	public ArrayList<ResultadoEnum> getPronosticos() {
 		return pronosticos;

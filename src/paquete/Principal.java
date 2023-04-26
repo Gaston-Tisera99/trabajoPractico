@@ -14,6 +14,9 @@ public class Principal {
 			System.out.println();
 			System.out.println(p.toString());
 		}
+		
+		
+		
 		l.leerPronostico("F:\\Eclipse\\TrabajoPractico\\pronostico.csv");
 		Pronostico pronostico = new Pronostico(l.getPartidos(), l.getPronosticos());
 		System.out.println("\nEl puntaje acumulado de los pronosticos es: ");
